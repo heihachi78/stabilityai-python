@@ -38,12 +38,12 @@ pipeline = StableDiffusion3Pipeline.from_pretrained(
 )
 pipeline.enable_model_cpu_offload()
 
-prompt = "A detailed and realistic photo of a group of beautiful and perfect daffodils on a meadow. Do not make it artistic or paint like it should look like a sharp realistic photo."
+prompt = "A detailed and realistic photo of a group of beautiful and perfect daffodils on a meadow. Do not make it artistic or paint like instead it should look like a sharp realistic photo. The shot must be fairly close to only see 4-5 daffodils."
 
 image = pipeline(
     prompt=prompt,
-    num_inference_steps=28,
-    guidance_scale=12.0,
+    num_inference_steps=64,
+    guidance_scale=8.0,
     max_sequence_length=512,
 ).images[0]
 image.save("daffodil-medium3.png")

@@ -6,7 +6,7 @@ import torch
 
 
 def get_inputs(batch_size=1):
-    generator = [torch.Generator("cuda").manual_seed(i + 19780428) for i in range(batch_size)]
+    generator = [torch.Generator("cuda").manual_seed(i) for i in range(batch_size)]
     prompts = batch_size * [prompt]
     num_inference_steps = 50
     return {
@@ -37,4 +37,4 @@ pipeline = pipeline.to("cuda")
 
 images = pipeline(**get_inputs(batch_size=4)).images
 image = make_image_grid(images, 2, 2)
-image.save("chief.png")
+image.save("chief2.png")
